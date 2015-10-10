@@ -14,6 +14,8 @@ angular.module('architechApp')
       The factory service returns an object, which later gets injected into the controller
       of the app.
     */
+
+  var apiKey = 'f3c8b0eb9229bc5cea463541547a0383';
   function getWeather(city){
 
      /* The function getWeather is a mehtod on the returned object of the factory service.
@@ -24,7 +26,8 @@ angular.module('architechApp')
 
   		var deferred = $q.defer();
   		
-  		$http.get('http://api.openweathermap.org/data/2.5/forecast/city?q='+city+'&units=metric&mo?callback=JSON_CALLBACK')	
+  		$http.get('http://api.openweathermap.org/data/2.5/forecast/city?q='+city+
+        '&APPID='+apiKey+'&units=metric&mo?callback=JSON_CALLBACK')	
   			.success(function(data){    
   				deferred.resolve(data);
   			})
